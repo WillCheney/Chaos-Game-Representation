@@ -1,6 +1,6 @@
 # Chaos Game Representation
 
-##Chaos Game shape
+## Chaos Game shape
 Steps through chaos game using user specfied number of points and generates image.<br>
 Restrict status can prevent the same point being chosen twice sequentially
 
