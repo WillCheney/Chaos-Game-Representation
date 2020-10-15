@@ -3,7 +3,7 @@ Chaos game representation(CGR) is algorithmn which can be used to visualize Mark
 
 ## Chaos Game shape
 When the chaos game is applied to system with equal probability outcomes it can generate fractals such as the Sierpiński triangle.<br>
-Chaos Game shape.py generates a chaos game representation image of equal probability n-outcome Markov chain.<br>
+Chaos Game shape.ipynb generates a chaos game representation image of equal probability n-outcome Markov chain.<br>
 
 Examples:<br>
 ![examples](https://github.com/WillCheney/Chaos-Game-Representation/blob/master/Chaos%20Game%20example-01.png)
