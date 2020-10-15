@@ -19,8 +19,10 @@ Example: 50kb CGR image of Human genome, Pattern shows absence of sequential C-G
 ## Using Machine Learning to Classify Genomes.
 Since organism have evolved, either by drift or selection, unique base pair usage probabilties different organisms should produce unique CGR of their genome.<br>
 We can use differences and image processing for genome classification.<br>
-Genome Classification using CGR.ipynb is an interactive python notebook which can be used to classify Human/Yeast genomes or Saccharomyces/Candida genomes. it also contains the steps to produce a CGR dataset and train a neural network on that dataset.<br>
+Genome Classification using CGR.ipynb is an interactive python notebook which can effectively(~95%) classify Human/Yeast genomes or genetically similar Saccharomyces/Candida genomes.<br>
+It also contains the steps to produce a CGR dataset and train a neural network on that dataset.<br>
 CGR_image_classifier.py contains functions to train a neural network on CGR image data and functions to classify unknown CGR genome images.<br>
 
 
-
+Example: Classification of unknown CGR genome using neural netowrk
+![examples](https://github.com/WillCheney/Chaos-Game-Representation/blob/master/Neural%20netowrk.png)
