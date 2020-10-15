@@ -14,7 +14,7 @@ Chaos game representation can also be applied to genetic sequences to create a "
 DNA_CGR_generation.py contains functions to generate a chaos game representation of a DNA sequence and functions to randomly sample a genome and build dataset of CGR images.<br>
 
 Example: 50kb CGR image of Human genome, Pattern shows absence of sequential C-G base pairs to prevent CpG methylation.<br>
-
+![examples](https://github.com/WillCheney/Chaos-Game-Representation/blob/master/human%20genomeII-01.png)
 
 ## Using Machine Learning to Classify Genomes.
 Since organism have evolved, either by drift or selection, unique base pair usage probabilties different organisms should produce unique CGR of their genome.<br>
