@@ -1,5 +1,6 @@
 # Chaos Game Representation
-Chaos game representation(CGR) is algorithmn which can be used to visualize Markov chains of a system.
+Chaos game representation(CGR) is algorithmn which can be used to visualize Markov chains of a system.<br>
+<b>Trained neural network parameter array is too large for github and can be downloaded from https://drive.google.com/drive/folders/1pHurLZddrC_J5KYkJh1DAASCZ5yH3a3D?usp=sharing<b><br>
 
 ## Chaos Game shape
 When the chaos game is applied to system with equal probability outcomes it can generate fractals such as the Sierpiński triangle.<br>
