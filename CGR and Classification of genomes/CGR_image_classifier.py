@@ -80,6 +80,32 @@ def initialize_parameters(layer_dims):
         
     return parameters
 
+def initialize_velocity(parameters):
+    """
+    Initializes the velocity as a python dictionary with:
+                - keys: "dW1", "db1", ..., "dWL", "dbL" 
+                - values: numpy arrays of zeros of the same shape as the corresponding gradients/parameters.
+    Arguments:
+    parameters -- python dictionary containing your parameters.
+                    parameters['W' + str(l)] = Wl
+                    parameters['b' + str(l)] = bl
+    
+    Returns:
+    v -- python dictionary containing the current velocity.
+                    v['dW' + str(l)] = velocity of dWl
+                    v['db' + str(l)] = velocity of dbl
+    """
+    
+    L = len(parameters) // 2 # number of layers in the neural networks
+    v = {}
+    
+    # Initialize velocity
+    for l in range(L):
+        v["dW" + str(l+1)] = np.zeros(parameters["W" + str(l+1)].shape)
+        v["db" + str(l+1)] = np.zeros(parameters["b" + str(l+1)].shape)
+        
+    return v
+
 
 def linear_forward(A, W, b):
     Z = np.dot(W,A) + b
@@ -362,8 +388,40 @@ def update_parameters(parameters, grads, learning_rate):
 
     # Update rule for each parameter. Use a for loop.
     for l in range(L):
+        
         parameters["W" + str(l+1)] = parameters["W" + str(l+1)] - learning_rate*grads["dW" + str(l+1)]
         parameters["b" + str(l+1)] = parameters["b" + str(l+1)] - learning_rate*grads["db" + str(l+1)]
+    return parameters
+
+def update_parameters_with_momentum(parameters, grads, v, beta learning_rate):
+    """
+    Update parameters using gradient descent
+    
+    Parameters:
+        parameters: python dictionary containing your parameters 
+        grads: python dictionary containing your gradients, output of L_model_backward
+    
+    Returns:
+        parameters:  python dictionary containing your updated parameters 
+                      parameters["W" + str(l)] = ... 
+                      parameters["b" + str(l)] = ...
+    """
+    
+    L = len(parameters) // 2 # number of layers in the neural network
+
+    for l in range(L):
+        v["dW" + str(l + 1)] = beta*v["dW" + str(l + 1)] + (1 - beta)*grads["dW" + str(l +1)]
+        v["db" + str(l + 1)] = beta*v["db" + str(l + 1)] + (1 - beta)*grads["db" + str(l +1)]
+    
+    
+    
+    # Update rule for each parameter. Use a for loop.
+    
+   
+    for l in range(L):
+        
+        parameters["W" + str(l+1)] = parameters["W" + str(l+1)] - learning_rate*v["dW" + str(l+1)]
+        parameters["b" + str(l+1)] = parameters["b" + str(l+1)] - learning_rate*v["db" + str(l+1)]
     return parameters
 
 
@@ -390,6 +448,10 @@ def L_layer_model(X, Y, layers_dims, learning_rate = 0.0075, num_iterations = 30
     
     # Parameters initialization. 
     parameters = initialize_parameters(layers_dims)
+    
+    #Momentum Initalization
+    velocity = initialize_velocity(parameters)
+    
     
     # Loop (gradient descent)
     for i in range(0, num_iterations):
